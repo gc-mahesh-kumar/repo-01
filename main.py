@@ -3,7 +3,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello():
-  return "<h1>Hello World from Google Cloud deployed in Cloud Run - Automated Deployment</h1>"
+  return "<h1>Hello World from Google Cloud deployed in Cloud Run - Automated Deployment - Cloud Run</h1>"
 
 @app.route("/version")
 def version():
