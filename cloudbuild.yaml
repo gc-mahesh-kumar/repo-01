@@ -1,16 +1,16 @@
 steps:
-# Build Image - Cheaper
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', '${_ARTIFACTS_REGISTRY_URL}/$PROJECT_ID/${_APP_NAME}:${SHORT_SHA}', '.']
+# # Build Image - Cheaper
+# - name: 'gcr.io/cloud-builders/docker'
+#   args: ['build', '-t', '${_ARTIFACTS_REGISTRY_URL}/$PROJECT_ID/${_APP_NAME}:${SHORT_SHA}', '.']
 
-# Push the Image
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['push', '${_ARTIFACTS_REGISTRY_URL}/$PROJECT_ID/${_APP_NAME}:${SHORT_SHA}']
+# # Push the Image
+# - name: 'gcr.io/cloud-builders/docker'
+#   args: ['push', '${_ARTIFACTS_REGISTRY_URL}/$PROJECT_ID/${_APP_NAME}:${SHORT_SHA}']
 
 
-#Build and push the image - WIll custom the Quota of 2500mins
-# - name: 'gcr.io/cloud-builders/gcloud'
-#   args: ['builds', 'submit', '-t', '${_ARTIFACTS_REGISTRY_URL}/$PROJECT_ID/${_APP_NAME}:${SHORT_SHA}']
+#Build and push the image - WIll cost you the Quota of 2500mins
+- name: 'gcr.io/cloud-builders/gcloud'
+  args: ['builds', 'submit', '-t', '${_ARTIFACTS_REGISTRY_URL}/$PROJECT_ID/${_APP_NAME}:${SHORT_SHA}']
 
 #gcloud run deploy devops  --region=europe-west1 --allow-unauthenticated --image=us-central1-docker.pkg.dev/cloud-custom-demos/pca-repo/devops:v3.0
 # #Deploy to Cloud Run
